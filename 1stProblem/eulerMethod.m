@@ -38,7 +38,7 @@ k(1) = 0;
 
 ##
 for i = 1:(n-1)
-  #Z (Ø)
+  #Z (\\psi)
   df = (nz - 2 * Dz * abs(u(i)) * u(i))/mz;
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
@@ -65,7 +65,7 @@ grid on;
 
 subplot(3,1,3);
 plot(t,z);
-title("ø(t)");
+title("\\psi(t)");
 grid on;
 
 
@@ -90,7 +90,7 @@ k(1) = 0;
 
 ##
 for i = 1:(n-1)
-  #Z (Ø)
+  #Z (\\psi)
   df = (nz - 2 * Dz * abs(u(i)) * u(i))/mz;
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
@@ -117,7 +117,7 @@ grid on;
 
 subplot(3,1,3);
 plot(t,z);
-title("ø(t)");
+title("\\psi(t)");
 grid on;
 
 
@@ -143,7 +143,7 @@ k(1) = 0;
 
 ##
 for i = 1:(n-1)
-  #Z (Ø)
+  #Z (\\psi)
   df = (nz - 2 * Dz * abs(u(i)) * u(i))/mz;
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
@@ -170,5 +170,5 @@ grid on;
 
 subplot(3,1,3);
 plot(t,z);
-title("ø(t)");
+title("\\psi(t)");
 grid on;
