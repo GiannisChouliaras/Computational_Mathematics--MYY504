@@ -43,7 +43,7 @@ for i = 1:(n-1)
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
   #X
-  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*w(i))/cos(z(i));
+  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*k(i))/cos(z(i));
   w(i+1) = w(i) + h*dg;
   x(i+1) = x(i) + h*w(i);
   #Y
@@ -95,7 +95,7 @@ for i = 1:(n-1)
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
   #X
-  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*w(i))/cos(z(i));
+  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*k(i))/cos(z(i));
   w(i+1) = w(i) + h*dg;
   x(i+1) = x(i) + h*w(i);
   #Y
@@ -148,7 +148,7 @@ for i = 1:(n-1)
   u(i+1) = u(i) + h*df;
   z(i+1) = z(i) + h*u(i);
   #X
-  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*w(i))/cos(z(i));
+  dg = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*k(i))/cos(z(i));
   w(i+1) = w(i) + h*dg;
   x(i+1) = x(i) + h*w(i);
   #Y
