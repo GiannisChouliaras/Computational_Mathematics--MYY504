@@ -44,37 +44,39 @@ for i = 1:(n-1)
   #Y
   dp = (((fy - Dy * abs(v(i)) * v(i))/(m+2*ma)) + cos(z(i))*u(i)*w(i) + sin(z(i))*u(i)*v(i))/cos(z(i));
 
-  #Z
+  #every k1(z,x,y)
   k1z = df;
-  k2z = u(i) + (h * df);
-  k1u = df;
-  k2u = (nz - (2 * Dz * abs(df) * df)) / mz;
+  k1x = dg;
+  k1y = dp;
 
+  #every k2(z,x,y)
+  k2z = u(i) + (h * df);
+  k2x = dg + h * dg;
+  k2y = dp + h*dp;
+
+  #every k1 (u,w,v)
+  k1u = df;
+  k1w = dg;
+  k1v = dp;
+
+  #every k2 (u,w,v)
+  k2u = (nz - (2 * Dz * abs(k1z) * k1z)) / mz;
+  k2w = (((fx - Dx * abs(k2x)*k2x)/m+3*ma) + sin(z(i)+h*u(i))*(u(i) + h*k1u)*k2x - cos(z(i) + h * u(i))*(u(i) + h * k1u) * (v(i) + h*dp))/cos(z(i) + h*k1u);
+  k2v = (((fy -Dy*abs(k2y) * k2y)/m+2*ma + cos(z(i) + h*u(i)) * (u(i) + h*k1u) * (w(i) + h*k1w) + sin(z(i) + h*u(i))*(u(i)+h*k1u)*k2y))/cos(z(i) + h*k1u);
+
+  #Z
   u(i+1) = u(i) + (h/2) * (k1u + k2u);
   z(i+1) = z(i) + (h/2) * (k1z + k2z);
 
   #X
-  k1x = dg;
-  k2x = dg + h * dg;
-  k1w = dg;
-  k2w = (((fx - Dx * abs(k2x)*k2x)/m+3*ma) + sin(z(i)+h*u(i))*(u(i) + h*k1u)*k2x - cos(z(i) + h * u(i))*(u(i) + h * k1u) * (v(i) + h*dp))/cos(z(i) + h*k1u);
-  ## stin 60 grammi prin to megalo klasma epeidh theloume to (v(i)+h*k1v) to k1v den exei ypologistei opote afoy k1v = Vn kanw antikatastash to dp
-
   w(i+1)= w(i) + (h/2) * (k1w + k2w);
   x(i+1)= x(i) + (h/2) * (k1x + k2x);
 
   #Y
-  dp = (((fy - Dy * abs(v(i)) * v(i))/(m+2*ma)) + cos(z(i))*u(i)*w(i) + sin(z(i))*u(i)*v(i))/cos(z(i));
-  k1y = dp;
-  k2y = dp + h*dp;
-  k1v = dp;
-  k2v = (((fy -Dy*abs(k2y) * k2y)/m+2*ma + cos(z(i) + h*u(i)) * (u(i) + h*k1u) * (w(i) + h*k1w) + sin(z(i) + h*u(i))*(u(i)+h*k1u)*k2y))/cos(z(i) + h*k1u);
-
   v(i+1) = v(i) + (h/2) * (k1v + k2v);
   y(i+1) = y(i) + (h/2) * (k1y + k2y);
 endfor
 
-figure(1);
 subplot(3,1,1);
 plot(t,x);
 title("x(t)");
