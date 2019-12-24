@@ -45,19 +45,19 @@ for i = 1:(n-1)
   dp = (((fy - Dy * abs(v(i)) * v(i))/(m+2*ma)) + cos(z(i))*u(i)*w(i) + sin(z(i))*u(i)*v(i))/cos(z(i));
 
   #every k1(z,x,y)
-  k1z = df;
-  k1x = dg;
-  k1y = dp;
-
-  #every k2(z,x,y)
-  k2z = u(i) + (h * df);
-  k2x = dg + h * dg;
-  k2y = dp + h*dp;
+  k1z = u(i);
+  k1x = w(i);
+  k1y = v(i);
 
   #every k1 (u,w,v)
   k1u = df;
   k1w = dg;
   k1v = dp;
+
+  #every k2(z,x,y)
+  k2z = u(i) + (h * u(i));
+  k2x = w(i) + (h * w(i));
+  k2y = v(i) + (h * v(i));
 
   #every k2 (u,w,v)
   k2u = (nz - (2 * Dz * abs(k1z) * k1z)) / mz;
