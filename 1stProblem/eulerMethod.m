@@ -14,7 +14,6 @@ m = 425000;
 mz = 357000000;
 ma = 113000;
 x(1) = 0;
-y(1) = -AM/1000;
 z(1) = 0;
 
 ###############   [fx,fy,nz] = [-AM,0,0]   #############
@@ -26,6 +25,7 @@ fx = -AM;
 x = zeros(size(t));
 z = zeros(size(t));
 y = zeros(size(t));
+y(1) = -AM/1000;
 
 n = numel(z);
 
@@ -35,6 +35,8 @@ w = zeros(size(t));
 w(1) = 0;
 k = zeros(size(t));
 k(1) = 0;
+
+
 
 ##
 for i = 1:(n-1)
@@ -78,6 +80,7 @@ fx = 0;
 x = zeros(size(t));
 z = zeros(size(t));
 y = zeros(size(t));
+y(1) = -AM/1000;
 
 n = numel(z);
 
@@ -131,6 +134,7 @@ fx = 0;
 x = zeros(size(t));
 z = zeros(size(t));
 y = zeros(size(t));
+y(1) = -AM/1000;
 
 n = numel(z);
 
