@@ -100,9 +100,9 @@ for i = 1:(n-1)
   k1y = v(i);
 
   #every k1 (u,w,v)
-  k1u = (nz - (2 * Dz * abs(u(i)) * u(i))) / mz;     # ?????
-  k1w = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*v(i))/cos(z(i));    # ?????
-  k1v = (((fy - Dy * abs(v(i)) * v(i))/(m+2*ma)) + cos(z(i))*u(i)*w(i) + sin(z(i))*u(i)*v(i))/cos(z(i));    # ?????
+  k1u = (nz - (2 * Dz * abs(u(i)) * u(i))) / mz;
+  k1w = (((fx - Dx * abs(w(i)) * w(i))/(m+3*ma)) + sin(z(i))*u(i)*w(i) - cos(z(i))*u(i)*v(i))/cos(z(i));
+  k1v = (((fy - Dy * abs(v(i)) * v(i))/(m+2*ma)) + cos(z(i))*u(i)*w(i) + sin(z(i))*u(i)*v(i))/cos(z(i));
 
   #every k2(z,x,y)
   k2z = u(i) + (h * k1u);
